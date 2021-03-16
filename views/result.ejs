@@ -1,0 +1,32 @@
+<%- include("./partials/header")%>
+
+<!-- 
+<% %> - Execute Code (run some function)
+<%= %> - Embed that variable 
+-->
+
+<div class="container">
+	<% if(moviesDump.Response==='False'){%>
+	<h1>Movie not found</h1>
+	<%}else{%>
+	<!-- <h1>Results go here</h1> -->
+
+	<div class="row mx-5 mt-5 px-auto">
+		<%moviesDump['Search'].forEach(function(movie){%>
+		<div class="card mx-auto border-dark mb-2" style="width: 18rem">
+			<img src="<%=movie.Poster%>" class="card-img-top px-2 pt-2" alt="..." />
+			<div class="card-body">
+				<h5 class="card-title"><%=movie.Title%></h5>
+				<p class="card-text">
+					Some quick example text to build on the card title and make up the
+					bulk of the card's content.
+				</p>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
+			</div>
+		</div>
+		<%})%>
+	</div>
+	<%}%>
+</div>
+<!-- <h1>Results Page!</h1> -->
+<%- include("./partials/footer")%>
